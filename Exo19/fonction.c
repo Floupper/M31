@@ -4,12 +4,17 @@
 #include <time.h>
 #include "fonction.h"
 
+double rand_base()
+{
+    return rand() / (double)(RAND_MAX);
+}
+
 double exp_density(double lambda)
 {
     double x;
     double y = (double)rand() / (double)RAND_MAX;
     x = log(1 - y) / (-lambda);
-    printf("Valeur de x = %f\n", x);
+    // printf("Valeur de x = %f\n", x);
     return x;
 }
 
@@ -39,5 +44,24 @@ void print_time(clock_t begin, clock_t end)
 {
     unsigned long temps1;
     temps1 = (unsigned long)(end - begin) * 1000 / CLOCKS_PER_SEC;
-    printf("Temps d'execution de geom_via_exp = %lu ms\n", temps1);
+    printf("Temps d'execution = %lu ms\n", temps1);
+}
+
+char bernouilli(double p)
+{
+    if (rand_base() < p)
+    {
+        return 1;
+    }
+    return 0;
+}
+
+unsigned int geometric(double p)
+{
+    unsigned int i = 0;
+    while (bernouilli(p) == 0)
+    {
+        i++;
+    }
+    return i + 1;
 }

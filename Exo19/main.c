@@ -22,5 +22,11 @@ int main(int argc, char const *argv[])
 
     print_time(begin, end);
 
+    clock_t begin2 = clock();
+    geometric(p);
+    clock_t end2 = clock();
+
+    print_time(begin2, end2);
+
     return 0;
 }
