@@ -12,6 +12,7 @@ int main(int argc, char const *argv[])
     double lambda = 2;
     int count = 20;
     double p = 0.5;
+    double pBernoulli = 10;
 
     exp_density(lambda);
     echantillon_exp_density(lambda, count);
@@ -23,7 +24,7 @@ int main(int argc, char const *argv[])
     print_time(begin, end);
 
     clock_t begin2 = clock();
-    geometric(p);
+    geometric(pBernoulli);
     clock_t end2 = clock();
 
     print_time(begin2, end2);
